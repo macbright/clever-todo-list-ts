@@ -1,46 +1,89 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align=center> **CLEVER TO-DO LIST** </h1>
 
-## Available Scripts
+[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![dependencies Status](https://david-dm.org/dwyl/esta/status.svg)](https://david-dm.org/dwyl/esta)
 
-In the project directory, you can run:
+In this project i built a todo list using firebase for user authentication and data storage. user can not have access to the app if not authenticated. A user can view his or her todo list for each day starting from the current date. 
+User can be able to create, edit and delete todo created by him/her
 
-### `npm start`
 
-Runs the app in the development mode.\
+![sample](./src/asset/ss.png)
+
+## Background
+
+- React
+- React-DOM
+- React-Create-App
+- TypeScript
+- JavaScript
+- npm
+- SCSS
+- FIREBASE
+
+## Demo
+The demo page can be found [HERE](https://clever-to-do-list.netlify.app/)
+
+## Usage
+
+> Clone the repository to your local machine
+
+```sh
+$ git clone https://github.com/macbright/clever-todo-list-ts.git
+```
+
+> cd into the directory
+
+```sh
+$ cd clever-to-to-list
+```
+
+> install the npm packages
+
+```sh
+$ npm install
+```
+
+> create a firebase account, create a project and setup a web app. 
+
+> create a .env file in your root folder and paste your firebase configuaration settings. save the variables according to how they are called in the base.js file.
+
+> use npm or yarn to start the server (note: you must have npm and yarn install)
+
+```sh
+$ yarn start
+```
+OR
+
+```sh
+$ npm start
+```
+this runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Maintainer
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+👤  **Bright Okike**
 
-### `npm run build`
+- Github: [@macbright](https://github.com/macbright)
+- LinkedIn: [@bokike](https://www.linkedin.com/in/bokike/)
+- Twitter: [@b_okike](https://twitter.com/b_okike)
+  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Future Features
+1. implement notification functionalities to send daily and hourly notification to users
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
 
-### `npm run eject`
+1. Fork it (https://github.com/macbright/clever-todo-list-ts.git)
+2. Create your feature branch (git checkout -b feature/[choose-a-name])
+3. Commit your changes (git commit -am 'What this commit will fix/add')
+4. Push to the branch (git push origin feature/[chosen name])
+5. Create a new Pull Request
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## License
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Bright okike 
+[MIT license](https://opensource.org/licenses/MIT).
