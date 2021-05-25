@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Todo } from "../types/Todo";
@@ -12,16 +11,24 @@ type Props = {
   handleClick: Function;
 };
 
+interface TodoProps {
+  text: string;
+  date: {};
+  complete: boolean;
+  createdAt: string;
+}
+
 const AddTodoModal = (props: Props) => {
-  const [todo, setTodo] = useState<any>({});
+  const [todo, setTodo] = useState<TodoProps>({
+    text: "",
+    date: {},
+    complete: false,
+    createdAt: "",
+  });
   const [startDate, setStartDate] = useState();
   const divStyle = {
     display: props.displayModal ? "block" : "none",
   };
-
-  useEffect(() => {
-    console.log("date type", startDate);
-  }, []);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -31,6 +38,7 @@ const AddTodoModal = (props: Props) => {
 
   const handleDate = (date, e) => {
     e.preventDefault();
+    console.log("check date for ts", typeof date);
     setStartDate(date);
     setTodo({ ...todo, date: date });
   };

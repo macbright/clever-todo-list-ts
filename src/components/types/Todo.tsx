@@ -1,21 +1,15 @@
 import { type } from "os";
 import DatePicker from "react-datepicker";
 
-type Date = {
-  nanosecounds: number;
-  seconds: number;
-};
+type Date = {};
 
-export type Todo = {
+export interface Todo {
   complete: boolean;
-
-  createAt: Date;
+  createdAt: Date;
   date: Date;
-
   text: string;
-
   id: string;
-};
+}
 
 export type TodoListData = [Todo];
 

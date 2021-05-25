@@ -1,21 +1,22 @@
 import React, { useContext, useState } from "react";
-import firebase, { firestore, functions, app } from "../../base";
-import { AuthContext } from "../Auth";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import firebase, { firestore, app } from "../../base";
 import AddTodoModal from "./AddTodoModal";
 
 const AddTodo = () => {
-  //   const addTodo = functions.httpsCallable("addTodo");
   const todosRef = firestore.collection(`users/${app.currentUser.uid}/todos`);
   const [todo, setTodo] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [modal, setModal] = useState(false);
-  const [todoDate, setTodoDate] = useState(new Date());
 
   const handleSubmit = (todo) => {
     setTodo(todo);
-    if (todo === null || todo.text === "") {
-      setError("todo can't not be blank");
+    if (
+      todo.date === null ||
+      todo.text === undefined ||
+      todo.text.trim().length <= 0 ||
+      todo.date.getDate() === undefined
+    ) {
+      setError("todo can't not be blank or date picker can't be blank");
     } else {
       todosRef.add({
         text: todo.text,

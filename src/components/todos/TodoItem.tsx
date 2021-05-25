@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import { firestore, functions, app } from "../../base";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import React, { useEffect, useState } from "react";
+import { firestore, app } from "../../base";
 import { useParams, Link, useHistory } from "react-router-dom";
-import PropTypes from "prop-types";
 import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,13 +8,20 @@ import {
   faEdit,
   faBackward,
 } from "@fortawesome/free-solid-svg-icons";
-import { check } from "prettier";
-import { Todo, Id } from "../types/Todo";
+import { Id } from "../types/Todo";
+
+interface TodoProps {
+  text: string;
+  date: {};
+  complete: boolean;
+  createdAt: string;
+  id: string;
+}
 
 const TodoItem = () => {
   let id2: Id = useParams();
   const history = useHistory();
-  const [todo, setTodo] = useState<any>();
+  const [todo, setTodo] = useState<TodoProps>();
   const todosRef = firestore.collection(`users/${app.currentUser.uid}/todos`);
   const [modal, setModal] = useState(false);
   const [todoDate, setTodoDate] = useState();

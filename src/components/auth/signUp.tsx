@@ -2,7 +2,6 @@ import React, { useCallback, useState, useContext } from "react";
 import { withRouter, useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { app } from "../../base";
-import { AuthContext } from "../Auth";
 
 const SignUp = () => {
   const [error, setError] = useState<string>("");

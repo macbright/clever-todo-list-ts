@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Todo } from "../types/Todo";
@@ -12,10 +11,17 @@ type Props = {
   upDatedTodo: Function;
 };
 
+// interface TodoProps {
+//     text: string;
+//     date: {};
+//     complete: boolean;
+//     createdAt: string;
+//   }
+
 type Error = string;
 
 const Modal = (props: Props) => {
-  const [todo, setTodo] = useState(props.todo);
+  const [todo, setTodo] = useState<Todo>(props.todo);
   const [startDate, setStartDate] = useState();
   const [error, setError] = useState<Error>("");
   //   const [todoDate, setTodoDate] = useState(props.todo.date.toDate());

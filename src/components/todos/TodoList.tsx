@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import firebase, { firestore, functions, app } from "../../base";
-import { AuthContext } from "../Auth";
+import React, { useEffect, useState } from "react";
+import firebase, { firestore, app } from "../../base";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import TodoShow from "./TodoShow";
 import { checkDate } from "../utils/checkDate";
-import PropTypes from "prop-types";
 import { TodoListData, Todo } from "../types/Todo";
 
 const TodoList = ({ selectedDate }: any) => {
