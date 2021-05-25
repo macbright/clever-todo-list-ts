@@ -24,7 +24,7 @@ const Login = () => {
 
   const { currentUser } = useContext(AuthContext);
 
-  if (currentUser.email) {
+  if (currentUser) {
     return <Redirect to="/" />;
   }
 

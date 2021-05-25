@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Todo } from "../types/Todo";
 
 type Props = {
   displayModal: boolean;
@@ -13,7 +12,7 @@ type Props = {
 
 interface TodoProps {
   text: string;
-  date: {};
+  date: null;
   complete: boolean;
   createdAt: string;
 }
@@ -21,7 +20,7 @@ interface TodoProps {
 const AddTodoModal = (props: Props) => {
   const [todo, setTodo] = useState<TodoProps>({
     text: "",
-    date: {},
+    date: null,
     complete: false,
     createdAt: "",
   });
