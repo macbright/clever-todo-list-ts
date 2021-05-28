@@ -1,3 +1,5 @@
+import { TodoListData, Todo } from "../types/Todo";
+
 export const checkDate = (selectedDate, todoList) => {
   let list = [];
   todoList.forEach((todo) => {

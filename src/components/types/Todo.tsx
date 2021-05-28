@@ -1,7 +1,7 @@
 import { type } from "os";
 import DatePicker from "react-datepicker";
 
-type Date = {};
+export type Date = {};
 
 export interface Todo {
   complete: boolean;

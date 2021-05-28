@@ -13,16 +13,17 @@ const SignUp = () => {
       try {
         await app.createUserWithEmailAndPassword(email.value, password.value);
         let user = app.currentUser;
-        user
-          .updateProfile({
-            displayName: name.value,
-          })
-          .then(
-            function () {},
-            function (error) {
-              console.log(error);
-            }
-          );
+        if (user)
+          user
+            .updateProfile({
+              displayName: name.value,
+            })
+            .then(
+              function () {},
+              function (error) {
+                console.log(error);
+              }
+            );
         history.push("/");
       } catch (error) {
         setError("email or password can not be blank");

@@ -19,22 +19,24 @@ interface TodoProps {
 }
 
 const TodoItem = () => {
-  let id2: Id = useParams();
+  let { id }: Id = useParams();
   const history = useHistory();
   const [todo, setTodo] = useState<TodoProps>();
-  const todosRef = firestore.collection(`users/${app.currentUser.uid}/todos`);
+  let todosRef;
+  if (app.currentUser)
+    todosRef = firestore.collection(`users/${app.currentUser.uid}/todos`);
   const [modal, setModal] = useState(false);
-  const [todoDate, setTodoDate] = useState();
+  // const [todoDate, setTodoDate] = useState();
 
   useEffect(() => {
-    let docRef = todosRef.doc(id2.id);
+    let docRef = todosRef.doc(id);
     console.log(todo);
     docRef
       .get()
       .then((doc) => {
         if (doc.exists) {
-          console.log("Document data:", doc.data());
-          setTodo(doc.data());
+          let data: any = doc.data();
+          setTodo(data);
         } else {
           console.log("No such document!");
         }
@@ -44,16 +46,13 @@ const TodoItem = () => {
       });
   }, []);
 
-  const onCompleteTodo = (id, complete) =>
-    todosRef.doc(id).set({ complete: !complete }, { merge: true });
+  const onCompleteTodo = (todo) =>
+    todosRef.doc(id).set({ complete: !todo.complete }, { merge: true });
 
-  const update = (todo) => {
+  const update = (todo: TodoProps) => {
     setTodo(todo);
     console.log("updated todo from update 4", todo);
-    todosRef
-      .doc(id2.id)
-      .set({ text: todo.text, date: todo.date }, { merge: true });
-
+    todosRef.doc(id).set({ text: todo.text, date: todo.date }, { merge: true });
     setModal(!modal);
   };
 
@@ -61,7 +60,7 @@ const TodoItem = () => {
     setModal(!modal);
   };
 
-  const onDeleteTodo = (id) => {
+  const onDeleteTodo = () => {
     todosRef.doc(id).delete();
     history.push("/");
   };
@@ -82,9 +81,9 @@ const TodoItem = () => {
             <input
               type="checkbox"
               defaultChecked={todo.complete}
-              onChange={() => onCompleteTodo(id2.id, todo.complete)}
+              onChange={() => onCompleteTodo(todo)}
             />
-            <a onClick={() => onDeleteTodo(id2.id)}>
+            <a onClick={onDeleteTodo}>
               <FontAwesomeIcon icon={faTrashAlt} />
             </a>
             <a onClick={handleEdit}>
