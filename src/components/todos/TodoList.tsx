@@ -5,6 +5,14 @@ import TodoShow from "./TodoShow";
 import { checkDate } from "../utils/checkDate";
 import { TodoListData, Todo } from "../types/Todo";
 
+interface TodoProps {
+  text: string;
+  date: {};
+  complete: boolean;
+  createdAt: string;
+  id: string;
+}
+
 const TodoList = ({ selectedDate }: any) => {
   const todosRef = app.currentUser
     ? firestore.collection(`users/${app.currentUser.uid}/todos`)
