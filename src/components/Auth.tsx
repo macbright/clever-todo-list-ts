@@ -3,12 +3,6 @@ import { app } from "../base";
 
 export const AuthContext: any = React.createContext({});
 
-interface User {
-  displayName: string;
-  email: string;
-  uid: string;
-}
-
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<any>();
   const [pending, setPending] = useState<boolean>(true);

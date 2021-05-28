@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { firestore, app } from "../../base";
 import { useParams, Link, useHistory } from "react-router-dom";
 import Modal from "./Modal";
@@ -9,6 +9,7 @@ import {
   faBackward,
 } from "@fortawesome/free-solid-svg-icons";
 import { Id } from "../types/Todo";
+import firebase from "firebase";
 
 interface TodoProps {
   text: string;
@@ -22,7 +23,7 @@ const TodoItem = () => {
   let { id }: Id = useParams();
   const history = useHistory();
   const [todo, setTodo] = useState<TodoProps>();
-  let todosRef;
+  let todosRef: firebase.firestore.CollectionReference<firebase.firestore.DocumentData>;
   if (app.currentUser)
     todosRef = firestore.collection(`users/${app.currentUser.uid}/todos`);
   const [modal, setModal] = useState(false);

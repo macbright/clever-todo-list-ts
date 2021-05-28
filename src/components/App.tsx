@@ -1,4 +1,3 @@
-import React from "react";
 import "./stylesheets/App.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./auth/Login";

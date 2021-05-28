@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { firestore, app } from "../../base";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import TodoShow from "./TodoShow";

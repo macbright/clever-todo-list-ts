@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { app } from "../base";
 import { AuthContext } from "./Auth";
 import AddTodo from "./todos/AddTodo";
