@@ -18,7 +18,7 @@ const TodoShow = (props: Props) => {
   let todosRef: firebase.firestore.CollectionReference<firebase.firestore.DocumentData>;
   if (app.currentUser)
     todosRef = firestore.collection(`users/${app.currentUser.uid}/todos`);
-  const [checked, setChecked] = useState(props.todo.complete);
+  let checked = props.todo.complete;
 
   const { id, text, complete } = props.todo;
   const onCompleteTodo = () =>

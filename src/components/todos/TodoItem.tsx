@@ -27,7 +27,6 @@ const TodoItem = () => {
   if (app.currentUser)
     todosRef = firestore.collection(`users/${app.currentUser.uid}/todos`);
   const [modal, setModal] = useState(false);
-  // const [todoDate, setTodoDate] = useState();
 
   useEffect(() => {
     let docRef = todosRef.doc(id);
